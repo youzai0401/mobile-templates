@@ -1,0 +1,76 @@
+.header {
+  position: fixed;
+  box-sizing: border-box;
+  left: 0;
+  right: 0;
+  height: 50px;
+  font-size: 22px;
+  background-color: #24303f;
+  .logo {
+    position: absolute;
+    //width: 250px;
+    top: -4px;
+    .logo-img {
+      font-size: 14px;
+      color: #fff;
+      /* width: 87px; */
+      position: absolute;
+      top: 20px;
+      left: 60px;
+      width: 200px;
+    }
+  }
+
+  .user-info {
+    float: right;
+    height: 50px;
+    line-height: 50px;
+    padding-right: 20px;
+    text-align: left;
+    .el-dropdown{
+      vertical-align: middle;
+      width: 200px;
+      font-size: 18px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    .name{
+      font-size: 14px;
+    }
+    .name:hover{
+      color: #52cef8;
+    }
+    .el-icon-setting{
+      margin-left: 10px;
+    }
+    .el-icon-close{
+      margin-left: 20px;
+      //font-size: 16px;
+    }
+  }
+  .hamburger {
+    display: inline-block;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    color: #ffffff;
+    transform: rotate(0deg);
+    transition: .28s;
+    transform-origin: 50% 50%;
+    fill: #fff;
+    padding: 22px;
+    margin-left: 200px;
+  }
+  .hamburger.is-active {
+    transform: rotate(90deg);
+  }
+}
+.header.active{
+  transition: all .28s ease-out;
+  margin-left: 50px;
+}
+.el-dropdown-menu {
+  transform-origin: 50% 50% 0!important;
+}
+
+

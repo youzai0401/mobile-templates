@@ -1,0 +1,21 @@
+{
+  "code": 200,
+  "message": "请求成功",
+  "data": {
+    "name": "资源位名称",
+    "area": "hahaha",
+    "imageList": [
+      {
+        "url": "http://img02.tooopen.com/images/20141229/sl_107003776898.jpg",
+        "id": 12
+      },
+      {
+        "url": "http://img02.tooopen.com/images/20141229/sl_107003776898.jpg",
+        "id": 23
+      }
+    ],
+    "creatorName": "guapi",
+    "status": 2,
+    "type": 2
+  }
+}

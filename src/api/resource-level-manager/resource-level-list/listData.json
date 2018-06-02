@@ -1,0 +1,23 @@
+{
+  "code": 200,
+  "message": "请求成功",
+  "data": [
+    {
+      "id": "1",
+      "name": "资源位名称",
+      "area": "支持的渠道范围",
+      "url": ["http://img02.tooopen.com/images/20141229/sl_107003776898.jpg","http://img02.tooopen.com/images/20141229/sl_107003776898.jpg"],
+      "creatorName": "创建人",
+      "status": 1,
+      "type": 1
+    }, {
+      "id": "2",
+      "name": "资源位名称",
+      "area": "支持的渠道范围",
+      "url": ["http://img02.tooopen.com/images/20141229/sl_107003776898.jpg","http://img02.tooopen.com/images/20141229/sl_107003776898.jpg"],
+      "creatorName": "创建人",
+      "status": 2,
+      "type": 1
+    }
+  ]
+}
