@@ -52,5 +52,5 @@ const session = {
 };
 export default {
     local,
-    session,
-}
+    session
+};

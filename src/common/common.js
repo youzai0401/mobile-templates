@@ -118,41 +118,11 @@ const returnPageTop = function() {
 
 
 const store = {
-    setMenuData(data) {
-        storage.session.setItem('menuData', data);
-    },
-    getMenuData() {
-        return storage.session.getItem('menuData');
-    },
-    setHomeUrl(url) {
-        storage.session.setItem('homeUrl', url);
-    },
-    getHomeUrl() {
-        return storage.session.getItem('homeUrl');
-    },
-    setRoutes(data) {
-        storage.session.setItem('routes', data);
-    },
-    getRoutes() {
-        return storage.session.getItem('routes');
-    },
     getUser() {
         return storage.local.getItem('user');
     },
     setUser(data) {
         storage.local.setItem('user', data);
-    },
-    setAuthority(data) {
-        storage.local.setItem('authority', data);
-    },
-    getAuthority() {
-        return storage.local.getItem('authority');
-    },
-    setResourceLevel(data) {
-        storage.local.setItem('resourceLevel', data);
-    },
-    getResourceLevel() {
-        return storage.local.getItem('resourceLevel');
     },
     clear() {
         storage.session.clear();

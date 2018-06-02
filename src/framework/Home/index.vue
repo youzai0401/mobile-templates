@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="container" :class="{active: collapsed}">
+    <div class="container" >
       <v-header></v-header>
       <div class="content" id="lw-content">
         <transition name="move" mode="out-in"><router-view></router-view></transition>

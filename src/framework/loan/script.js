@@ -12,5 +12,12 @@ export default {
         };
     },
     mounted() {},
-    methods: {}
+    methods: {
+        handleLoanSuccess() {
+            this.$router.push('/home');
+        },
+        handleLoanFailed() {
+            this.$router.push('/personal-data');
+        }
+    }
 };
