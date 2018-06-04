@@ -2,7 +2,7 @@ const loan = resolve => require(['./index.vue'], resolve);
 
 export default [
     {
-        path: '/',
+        path: '/loan',
         name: 'loan',
         component: loan,
         meta: {

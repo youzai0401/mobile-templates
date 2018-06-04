@@ -6,7 +6,7 @@ export default [
         name: 'login',
         component: resolve => require(['./login/index.vue'], resolve)
     }, {
-        path: '/',
+        path: '/home',
         name: 'home',
         component: resolve => require(['./Home/index.vue'], resolve),
         children: childrenRoutes

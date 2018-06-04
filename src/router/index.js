@@ -13,18 +13,18 @@ const router = new Router({
     routes
 });
 router.beforeEach(async(to, from, next) => {
-    cancelFetches();
+    // cancelFetches();
     console.log('from::', from);
     console.log('to::', to);
     // 确认当前是否登录
-    const isLogin = common.store.getUser();
-    if (to.path === '/login') {
-        return next();
-    }
-    if (!isLogin) { // 如果未登录去home
-        return next('/login');
-    }
-    // if (to.path === '/') { // 如果未登录去home
+    // const isLogin = common.store.getUser();
+    // if (to.path === '/login') {
+    //     return next();
+    // }
+    // if (!isLogin) {
+    //     return next('/login');
+    // }
+    // if (to.path === '/') {
     //     return next('/loan');
     // }
     return next();

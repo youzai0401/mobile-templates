@@ -16,7 +16,7 @@ export default {
   font-family: Microsoft YaHei, Simsum, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100%;
+  min-height: 100vh;
   height: 100%;
 }
 </style>

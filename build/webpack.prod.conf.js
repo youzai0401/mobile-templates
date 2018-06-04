@@ -82,9 +82,6 @@ var webpackConfig = merge(baseWebpackConfig, {
                 to: config.build.assetsSubDirectory,
                 ignore: ['.*']
             }, {
-                from: path.resolve(__dirname, '../robots.txt'),
-                to: 'robots.txt'
-            },{
                 from: path.resolve(__dirname, '../favicon.ico'),
                 to: 'favicon.ico'
             }
