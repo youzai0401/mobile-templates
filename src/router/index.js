@@ -24,6 +24,9 @@ router.beforeEach(async(to, from, next) => {
     if (!isLogin) { // 如果未登录去home
         return next('/login');
     }
+    // if (to.path === '/') { // 如果未登录去home
+    //     return next('/loan');
+    // }
     return next();
 });
 

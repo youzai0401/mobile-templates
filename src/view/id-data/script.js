@@ -8,10 +8,5 @@ export default {
         };
     },
     mounted() {},
-    methods: {
-        handleLogout() {
-            common.store.clear();
-            this.$router.push('/login');
-        }
-    }
+    methods: {}
 };

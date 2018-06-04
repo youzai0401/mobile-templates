@@ -1,0 +1,36 @@
+.menu {
+    position: fixed;
+    right: 0;
+    top: 40px;
+    padding: 40px;
+    z-index: 2;
+    width: 80px;
+    height: calc(100vh - 40px);
+    color: #fff;
+    background-color: #26a2ff;
+    overflow: hidden;
+    padding: 1px 0;
+    text-align: center;
+    transform: translateX(0px);
+    -webkit-transition: transform 0.8s;
+}
+
+.menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    /*//padding: 10px 0;*/
+    margin: 20px 0;
+}
+
+.menu a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.menu .split-line {
+    border-bottom: 1px solid #fff;
+    margin: 5px auto;
+    width: 70px;
+}
+
+

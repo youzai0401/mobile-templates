@@ -1,21 +1,11 @@
 import vHeader from '../Header/index.vue';
-import common from '../../common/common';
-import storage from '../../common/storage.js';
-import {fetch} from '../../common/request';
+// import common from '../../common/common';
 
-let timer;
 export default {
     created() {},
-    mounted() {
-        console.log('cookie:', common.getRememberMe());
-        if (!common.getRememberMe()) {
-            this.backLogin();
-            this.bindEvent();
-        }
-    },
+    mounted() {},
     destroyed() {
-        this.clearTimer();
-        this.unbindEvent();
+        // this.clearTimer();
     },
     data() {
         return {};

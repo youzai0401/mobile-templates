@@ -1,5 +1,5 @@
 // import {fetch} from '../../common/request';
-// import common from '../../common/common';
+import common from '../../common/common';
 
 export default {
     data() {
@@ -14,7 +14,7 @@ export default {
     mounted() {},
     methods: {
         handleLoanSuccess() {
-            this.$router.push('/home');
+            this.$router.push('/');
         },
         handleLoanFailed() {
             this.$router.push('/personal-data');

@@ -29,6 +29,7 @@ const vm = new Vue({
     components: {App}
 });
 
+// Vue.prototype.$bus = new Vue();
 // vm.$alert('错误信息', '系统提示信息', {
 //     confirmButtonText: '确定',
 //     customClass: 're-alert-error-message'

@@ -5,7 +5,11 @@ export default {
     data() {
         return {
             isActive: false,
-            name: storage.local.getItem('user').name
+            name: storage.local.getItem('user').name,
+            currentPath: this.$route.path,
+            isShowBack: !(this.$route.path === '/personal-data' || this.$route.path === '/'),
+            title: this.$route.meta.pageTitle,
+            showMenu: false
         };
     },
     computed: {
@@ -20,9 +24,14 @@ export default {
                 storage.session.clear();
                 window.location.reload();
             }
-        }
+        },
     },
+    mounted() {},
     methods: {
+        handleMenu() {
+            console.log('弹出菜单');
+            this.showMenu = !this.showMenu;
+        },
         handleCommand(command) {
             if (command === 'loginout') {
                 this.logout();

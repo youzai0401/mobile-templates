@@ -2,11 +2,11 @@ const data = resolve => require(['./index.vue'], resolve);
 
 export default [
     {
-        path: '/personal-data',
-        name: 'personal-data',
+        path: '/contacts-data',
+        name: 'contacts-data',
         component: data,
         meta: {
-            pageTitle: '我的资料'
+            pageTitle: '联系人信息'
         }
     }];
 
