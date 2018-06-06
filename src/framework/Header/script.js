@@ -20,11 +20,13 @@ export default {
     },
     watch: {
         '$route'() {
-            if (this.userName !== storage.local.getItem('user').name) {
-                storage.session.clear();
-                window.location.reload();
-            }
-        },
+            // if (this.userName !== storage.local.getItem('user').name) {
+            //     storage.session.clear();
+            //     // window.location.reload();
+            // }
+            this.title = this.$route.meta.pageTitle;
+            this.isShowBack = !(this.$route.path === '/personal-data' || this.$route.path === '/');
+        }
     },
     mounted() {},
     methods: {

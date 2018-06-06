@@ -11,7 +11,8 @@
     "build-demo": "npm run route&&cross-env NODE_ENV=demo node build/build.js",
     "build-production": "npm run route&&cross-env NODE_ENV=production node build/build.js",
     "route": "node generate-routes.js",
-    "build-preview": "cd dist&&http-server"
+    "build-preview": "cd dist&&http-server",
+    "analyz": "npm run build-production --report"
   },
   "dependencies": {
     "axios": "^0.16.1",
