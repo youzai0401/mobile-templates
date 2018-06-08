@@ -5,7 +5,6 @@ export default {
     data() {
         return {
             isActive: false,
-            name: storage.local.getItem('user').name,
             currentPath: this.$route.path,
             isShowBack: !(this.$route.path === '/personal-data' || this.$route.path === '/'),
             title: this.$route.meta.pageTitle,
@@ -14,21 +13,21 @@ export default {
     },
     computed: {
         userName() {
-            const name = this.name;
             return name ? name : '未登录';
         }
     },
     watch: {
         '$route'() {
-            // if (this.userName !== storage.local.getItem('user').name) {
-            //     storage.session.clear();
-            //     // window.location.reload();
-            // }
             this.title = this.$route.meta.pageTitle;
             this.isShowBack = !(this.$route.path === '/personal-data' || this.$route.path === '/');
+            this.showMenu = false;
         }
     },
-    mounted() {},
+    mounted() {
+        this.title = this.$route.meta.pageTitle;
+        this.isShowBack = !(this.$route.path === '/personal-data' || this.$route.path === '/');
+        this.showMenu = false;
+    },
     methods: {
         handleMenu() {
             console.log('弹出菜单');

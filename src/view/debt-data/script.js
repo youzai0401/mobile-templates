@@ -5,22 +5,17 @@ export default {
     data() {
         return {
             path: this.$route,
-            formData: {
-                name: '',
-                relation: '',
-                phoneNum: '',
-                company: ''
-            }
+            name: ''
         };
     },
     mounted() {},
     methods: {
         handleBack() {
-            this.$router.push('/bankCard-data');
+            this.$router.push('/contacts-data');
         },
         handleNext() {
             // 保存数据
-            this.$router.push('/debt-data');
+            this.$router.push('/personal-data');
         }
     }
 };

@@ -5,3 +5,71 @@ html, body {
   width: 100%;
   height: 100%;
 }
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+.cell-required {
+  color: #CC2918;
+}
+.button-container-back-next {
+  width: 100%;
+  margin: 20px 0;
+  .button-back {
+    width: 35%;
+    margin-left: 10%;
+  }
+  .button-next {
+    width: 35%;
+    margin-left: 10%;
+  }
+}
+
+.data-cell {
+  background-color: #fff;
+  box-sizing: border-box;
+  color: inherit;
+  min-height: 48px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  padding: 0 10px;
+  border-bottom: 1px solid #eee;
+  .data-cell-label {
+    position: absolute;
+    width: 25%;
+    line-height: 48px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .data-cell-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    border: 0;
+    outline: 0;
+    line-height: 48px;
+    font-size: inherit;
+    width: 60%;
+    margin-left: 26%;
+    background: #fff;
+  }
+  .mint-field-state {
+    width: 10%;
+  }
+}
+.ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+

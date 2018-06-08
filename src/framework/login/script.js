@@ -12,11 +12,11 @@ export default {
             rules: {
                 username: [
                     {require: true, message: '用户名不能为空'},
-                    {maxLength: 20, message: '用户名最长不能超过20位'},
+                    {maxLength: 20, message: '用户名最长不能超过20位'}
                     // {reg: /^[1][3,4,5,7,8][0-9]{9}$/, message: '输入的名称不符合要求'}
                 ],
                 password: [
-                    {require: true, message: '密码不能为空'},
+                    {require: true, message: '密码不能为空'}
                 ]
             },
             rulesState: {

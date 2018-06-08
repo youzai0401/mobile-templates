@@ -130,7 +130,15 @@ const store = {
     }
 };
 const getRememberMe = () => cookie.get('rememberMe');
-
+const getObjectKeys = function(objectData, ignoreKey = []) {
+    const keys = [];
+    for (const p1 in objectData) {
+        if (objectData.hasOwnProperty(p1) && ignoreKey.indexOf(p1) === -1) {
+            keys.push(p1);
+        }
+    }
+    return keys;
+};
 
 export default {
     getUrlParam,
@@ -140,5 +148,6 @@ export default {
     toThousands,
     toPercentage,
     getRememberMe,
-    returnPageTop
+    returnPageTop,
+    getObjectKeys
 };

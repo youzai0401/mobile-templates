@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="container" >
       <v-header></v-header>
-      <div class="content" id="lw-content">
+      <div class="content">
         <transition name="move" mode="out-in"><router-view></router-view></transition>
       </div>
     </div>

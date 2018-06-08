@@ -7,7 +7,14 @@ export default {
     data() {
         return {
             path: this.$route,
-            params: this.$route.params
+            params: this.$route.params,
+            formData: {
+                name: '',
+                identityId: '',
+                cardFront: '',
+                cardBack: '',
+                cardPerson: ''
+            }
         };
     },
     mounted() {
@@ -34,6 +41,22 @@ export default {
                     }
                     console.log(response.data);
                 });
+        },
+        main_log(value) {
+            console.log(value);
+        },
+        handleUploadFrontImg() {
+            const fileElem = document.getElementById('uploadFrontImg');
+            if (fileElem) {
+                fileElem.click();
+            }
+        },
+        handleBack() {
+            this.$router.push('/personal-data');
+        },
+        handleNext() {
+            // 保存数据
+            this.$router.push('/information-data');
         }
     }
 };
