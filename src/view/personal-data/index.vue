@@ -1,7 +1,7 @@
 routes.js
 <template>
     <div class="loan">
-        <p v-show="!dataIsComplete" class="complete-loan-tips">完善资料，贷款和你仅一步之遥</p>
+        <p v-show="!dataIsComplete" class="complete-loan-tips" v-cloak>完善资料，贷款和你仅一步之遥</p>
         <!--<mt-cell title="身份信息" label="让我们了解您的基本情况" is-link to="/id-data">-->
             <!--<span>icon 是图片</span>-->
             <!--<img slot="icon" src="../../../static/img/circle-1.png" width="24" height="24">-->

@@ -6,7 +6,7 @@ export default {
     data() {
         return {
             path: this.$route,
-            dataIsComplete: false,
+            dataIsComplete: true,
             linkArr: [
                 {
                     icon: '#icon-shenfen-',
@@ -65,6 +65,8 @@ export default {
             this.linkArr[4].showType = data.account === 1 ? 1 : 0;
             if (data.info === 1 && data.data === 1 && data.link === 1 && data.account === 1) {
                 this.dataIsComplete = true;
+            } else {
+                this.dataIsComplete = false;
             }
         }
     },
