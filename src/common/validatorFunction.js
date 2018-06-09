@@ -14,8 +14,10 @@ function getObjectKeys(objectData, ignoreKey = []) {
 // 校验种类
 const validatorUtils = {
     'require'(value, rule) {
-        // qewq
         if (rule) {
+            if (value === 0) {
+                return true;
+            }
             if (!value) {
                 return false;
             } else {

@@ -3,6 +3,10 @@ import {fetch} from '../../common/request';
 import serviceUrl from './serviceUrl';
 
 export default {
+    // 贷款基础数据
+    getPeriod() {
+        return fetch().get(serviceUrl.getPeriod);
+    },
     // 申请贷款接口
     postApplyLoan(data) {
         return fetch().post(serviceUrl.postApplyLoan, data);
@@ -46,7 +50,11 @@ export default {
         return fetch().get(serviceUrl.getDebtData(id));
     },
     // 获取哪些信息填写了
-    getInfoList() {
-        return fetch().get(serviceUrl.getInfoList);
+    getPlan(id) {
+        return fetch().get(serviceUrl.getPlan(id));
+    },
+    // 获取openid
+    getOpenid(code) {
+        return fetch().post(serviceUrl.getOpenid(code));
     }
 };

@@ -124,6 +124,12 @@ const store = {
     setUser(data) {
         storage.local.setItem('user', data);
     },
+    getOpenid() {
+        return storage.local.getItem('openid');
+    },
+    setOpenid(openid) {
+        storage.local.setItem('openid', openid);
+    },
     clear() {
         storage.session.clear();
         storage.local.clear();

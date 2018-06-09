@@ -1,12 +1,14 @@
 import server from '../../api/util/index';
 import {MessageBox} from 'mint-ui';
 import validatorFunction from '../../common/validatorFunction';
+import common from '../../common/common';
 
 export default {
     data() {
         return {
             path: this.$route,
             formData: {
+                openid: common.store.getOpenid(),
                 phoneNum: '',
                 permanentAddr: '',
                 houseType: '',
@@ -22,45 +24,51 @@ export default {
                 incomeMon: '',
                 introducerName: '',
                 introducerPhone: '',
-                remark: '',
-                updateTime: ''
+                remark: ''
             },
             // TODO 住宅状况？
             rules: {
                 phoneNum: [
-                    {require: true, message: '请输入借款手机号'}
+                    {require: true, message: '请输入借款手机号'},
+                    {maxLength: 500, message: '输入长度不能超出500'}
                 ],
                 permanentAddr: [
-                    {require: true, message: '请输入户籍地址'}
+                    {require: true, message: '请输入户籍地址'},
+                    {maxLength: 500, message: '输入长度不能超出500'}
                 ],
                 houseType: [
-                    {require: true, message: '请输入住宅状况'}
+                    {require: true, message: '请输入住宅状况'},
+                    {maxLength: 500, message: '输入长度不能超出500'}
                 ],
                 houseAddr: [
-                    {require: true, message: '请输入现住地址'}
+                    {require: true, message: '请输入现住地址'},
+                    {maxLength: 500, message: '输入长度不能超出500'}
                 ],
                 maritalStatus: [
-                    {require: true, message: '请选择婚姻状况'}
+                    {require: true, message: '请选择婚姻状况'},
+                    {maxLength: 500, message: '输入长度不能超出500'}
                 ],
                 houseOwner: [
-                    {require: true, message: '请输入户主名称'}
+                    {require: true, message: '请输入户主名称'},
+                    {maxLength: 500, message: '输入长度不能超出500'}
                 ],
                 companyName: [
-                    {require: true, message: '请输入现任公司名称'}
+                    {require: true, message: '请输入现任公司名称'},
+                    {maxLength: 500, message: '输入长度不能超出500'}
                 ]
             }
         };
     },
     async mounted() {
         // 获取openid
-        const openid = '';
+        const openid = common.store.getOpenid();
         const res = await server.getInformationData(openid).catch(() => {
             MessageBox('提示', '系统错误');
         });
         if (res && res.data && res.data.code === 200) {
-            this.formData = res.data.data;
-        } else {
-            MessageBox('提示', '系统错误');
+            if (res.data.data) {
+                this.formData = res.data.data;
+            }
         }
     },
     methods: {
@@ -73,6 +81,8 @@ export default {
             console.log(rulesResult);
             if (rulesResult.result) {
                 // 校验成功，保存信息
+                this.formData.maritalStatus = Number(this.formData.maritalStatus);
+                this.formData.incomeMon = this.formData.incomeMon ? Number(this.formData.incomeMon) : '';
                 const res = await server.postInformationData(this.formData);
                 if (res && res.data && res.data.code === 200) {
                     this.$router.push('/bankCard-data');

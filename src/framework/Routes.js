@@ -1,14 +1,15 @@
 import childrenRoutes from '../allRoutes.js';
 
 export default [
+    // {
+    //     path: '/login',
+    //     name: 'login',
+    //     meta: {
+    //         pageTitle: '登录'
+    //     },
+    //     component: resolve => require(['./login/index.vue'], resolve)
+    // }, {
     {
-        path: '/login',
-        name: 'login',
-        meta: {
-            pageTitle: '登录'
-        },
-        component: resolve => require(['./login/index.vue'], resolve)
-    }, {
         path: '/',
         name: 'home',
         meta: {

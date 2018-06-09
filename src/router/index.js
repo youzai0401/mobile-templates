@@ -16,17 +16,16 @@ router.beforeEach(async(to, from, next) => {
     // cancelFetches();
     console.log('from::', from);
     console.log('to::', to);
-    // 确认当前是否登录
-    // const isLogin = common.store.getUser();
-    // if (to.path === '/login') {
-    //     return next();
-    // }
-    // if (!isLogin) {
-    //     return next('/login');
-    // }
-    // if (to.path === '/') {
-    //     return next('/loan');
-    // }
+    // 确认当前是否登录，是否存在openid
+    const openid = common.store.getOpenid();
+    if (to.path === '/') {
+        return next();
+    }
+    if (!openid) {
+        next('/');
+        window.location.reload();
+        return;
+    }
     return next();
 });
 

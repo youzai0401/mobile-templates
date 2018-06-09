@@ -6,7 +6,10 @@ export default {
     postBankcardData: '/api/bank',
     postContactsData: '/api/link',
     postDebtData: '/api/bankdebt',
-    getInfoList: '/api/infolist',
+    getPeriod: '/api/period',
+    getPlan(id) {
+        return `/api/plan?openid=${id}`;
+    },
     getApplyLoan(id) {
         return `/api/loan?openid=${id}`;
     },
@@ -24,5 +27,8 @@ export default {
     },
     getDebtData(id) {
         return `/api/bankdebt?openid=${id}`;
+    },
+    getOpenid(code) {
+        return `/api/user?code=${code}`;
     }
-}
+};

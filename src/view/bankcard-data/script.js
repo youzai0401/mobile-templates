@@ -1,12 +1,14 @@
 import server from '../../api/util/index';
 import {MessageBox} from 'mint-ui';
 import validatorFunction from '../../common/validatorFunction';
+import common from '../../common/common';
 
 export default {
     data() {
         return {
             path: this.$route,
             formData: {
+                openid: common.store.getOpenid(),
                 name: '',
                 identityId: '',
                 bankAddr: '',
@@ -15,16 +17,20 @@ export default {
             },
             rules: {
                 name: [
-                    {require: true, message: '持卡人姓名不能为空'}
+                    {require: true, message: '持卡人姓名不能为空'},
+                    {maxLength: 500, message: '输入长度不能超出500'}
                 ],
                 identityId: [
-                    {require: true, message: '持卡人身份证号不能为空'}
+                    {require: true, message: '持卡人身份证号不能为空'},
+                    {maxLength: 500, message: '输入长度不能超出500'}
                 ],
                 bankAddr: [
-                    {require: true, message: '开户银行和地址不能为空'}
+                    {require: true, message: '开户银行和地址不能为空'},
+                    {maxLength: 500, message: '输入长度不能超出500'}
                 ],
                 account: [
-                    {require: true, message: '收款账号不能为空'}
+                    {require: true, message: '收款账号不能为空'},
+                    {maxLength: 500, message: '输入长度不能超出500'}
                 ]
             },
             rulesState: {
@@ -37,12 +43,14 @@ export default {
     },
     async mounted() {
         // 获取openid
-        const openid = '';
+        const openid = common.store.getOpenid();
         const res = await server.getBankcardData(openid).catch(() => {
             MessageBox('提示', '系统错误');
         });
         if (res && res.data && res.data.code === 200) {
-            this.formData = res.data.data;
+            if (res.data.data) {
+                this.formData = res.data.data;
+            }
         }
     },
     methods: {

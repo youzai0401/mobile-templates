@@ -29,8 +29,9 @@
             <span class="cell-required">*</span>婚姻状况
             </span>
             <select class="data-cell-input" name="marital" id="" v-model="formData.maritalStatus">
-                <option value="1">未婚</option>
-                <option value="2">已婚</option>
+                <option value=1>未婚</option>
+                <option value=2>已婚</option>
+                <option value=0>离异</option>
             </select>
         </div>
         <div class="data-cell">
