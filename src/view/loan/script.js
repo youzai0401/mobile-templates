@@ -85,6 +85,13 @@ export default {
     methods: {
         async handleLoanSuccess() {
             // todo 对传递的数据进行处理
+            // todo 如果没有同意不允许申请
+            if (!this.isAgreement) {
+                MessageBox({
+                    title: '提示',
+                    message: '请仔细阅读平台服务协议，并确认勾选'
+                });
+            }
             const res = await server.postApplyLoan(this.formData).catch(() => {
                 MessageBox('提示', '系统错误');
             });
