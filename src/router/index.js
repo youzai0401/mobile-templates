@@ -23,7 +23,7 @@ router.beforeEach(async(to, from, next) => {
     }
     if (!openid) {
         next('/');
-        window.location.reload();
+        // window.location.reload();
         return;
     }
     return next();

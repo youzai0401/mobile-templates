@@ -1,5 +1,6 @@
 import server from '../../api/util/index';
 import {MessageBox} from 'mint-ui';
+import { Indicator } from 'mint-ui';
 import validatorFunction from '../../common/validatorFunction';
 import axios from 'axios';
 import common from '../../common/common';
@@ -56,6 +57,17 @@ export default {
             const param = new FormData();
             // 创建form对象
             param.append('img', file, file.name);
+            console.log(file.size);
+            const fileSize = file.size / (1024 * 1024);
+            console.log(fileSize);
+            if (fileSize > 5) {
+                MessageBox('提示', '上传图片不能超过5M');
+                return;
+            }
+            Indicator.open({
+                text: '图片上传中',
+                spinnerType: 'fading-circle'
+            });
             // 通过append向form对象添加数据
             // param.append('chunk', '0'); // 添加form表单中其他数据
             console.log(param.get('file')); // FormData私有类对象，访问不到，可以通过get判断值是否传进去
@@ -66,6 +78,7 @@ export default {
             axios.post('api/img', param, config)
                 .then(response => {
                     if (response.data.code === 200) {
+                        Indicator.close();
                         switch (type) {
                             case 'front':
                                 this.formData.cardFront = this.formatterImgUrl(response.data.data);

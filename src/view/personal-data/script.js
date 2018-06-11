@@ -46,6 +46,13 @@ export default {
                     label: '让我们了解您的负债信息',
                     href: '/#/debt-data',
                     showFlag: false
+                },
+                {
+                    icon: '#icon-liebiao',
+                    title: '借贷列表',
+                    label: '已借贷列表信息',
+                    href: '/#/loan-list',
+                    showFlag: false
                 }
             ]
         };

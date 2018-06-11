@@ -5,13 +5,13 @@ export default {
     postInformationData: '/api/data',
     postBankcardData: '/api/bank',
     postContactsData: '/api/link',
-    postDebtData: '/api/bankdebt',
+    postDebtData: '/api/debt',
     getPeriod: '/api/period',
-    getPlan(id) {
-        return `/api/plan?openid=${id}`;
-    },
     getApplyLoan(id) {
         return `/api/loan?openid=${id}`;
+    },
+    getPlan(id) {
+        return `/api/plan?openid=${id}`;
     },
     getIdData(id) {
         return `/api/info?openid=${id}`;
@@ -26,7 +26,7 @@ export default {
         return `/api/link?openid=${id}`;
     },
     getDebtData(id) {
-        return `/api/bankdebt?openid=${id}`;
+        return `/api/debt?openid=${id}`;
     },
     getOpenid(code) {
         return `/api/user?code=${code}`;

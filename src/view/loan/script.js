@@ -12,17 +12,14 @@ export default {
             password: '',
             phone: '',
             introduction: '',
-            rangeValue: 10,
-            selectValue: '',
+            selectId: '',
+            selectName: '',
+            currentRate: 1,
+            rangeValue: 3,
             isAgreement: false,
             dataIsComplete: false,
-            timeArr: [{
-                time: '10周',
-                value: 10
-            }, {
-                time: '20周',
-                value: 20
-            }],
+            alertLoanAgreement: false,
+            timeArr: [],
             formData: {
                 openid: common.store.getOpenid(),
                 purpose: '',
@@ -32,12 +29,30 @@ export default {
             }
         };
     },
+    computed: {
+        rangeValue() {
+            return Math.ceil((this.formData.value / 30000) * 100);
+        }
+    },
+    watch: {
+        rangeValue() {
+            if (this.rangeValue === 3) {
+                this.formData.value = 1000;
+            } else {
+                this.formData.value = this.rangeValue * 300;
+            }
+        },
+        selectId() {
+            this.formData.periodId = this.selectId;
+            this.formData.periodName = this.selectName;
+        }
+    },
     async mounted() {
         // 获取openid
         let openid = common.store.getOpenid();
         if (!openid) {
             // 获取code
-            const code = 'admin123';
+            const code = 'admin1234';
             const res1 = await server.getOpenid(code).catch(() => {
                 MessageBox('提示', '系统错误');
             });
@@ -53,18 +68,14 @@ export default {
         });
         if (res2 && res2.data && res2.data.code === 200) {
             const res2Data = res2.data.data;
-            if (res2Data) {
-                // todo 将获取到的基础数据放入页面中
-                // this.formData = res.data.data;
-            }
-        }
-        // 获取所申请信息
-        const res4 = await server.getApplyLoan(openid).catch(() => {
-            MessageBox('提示', '系统错误');
-        });
-        if (res4 && res4.data && res4.data.code === 200) {
-            const res4Data = res4.data.data;
-            if (res4Data) {
+            if (res2Data.content) {
+                this.timeArr = res2Data.content;
+                // 默认选中第一个
+                if (res2Data.content.length !== 0) {
+                    this.selectId = this.timeArr[0].id;
+                    this.selectName = this.timeArr[0].name;
+                    this.currentRate = this.timeArr[0].rate;
+                }
                 // todo 将获取到的基础数据放入页面中
                 // this.formData = res.data.data;
             }
@@ -91,6 +102,14 @@ export default {
                     title: '提示',
                     message: '请仔细阅读平台服务协议，并确认勾选'
                 });
+                return;
+            }
+            if (!this.formData.purpose) {
+                MessageBox({
+                    title: '提示',
+                    message: '请填写借款用途'
+                });
+                return;
             }
             const res = await server.postApplyLoan(this.formData).catch(() => {
                 MessageBox('提示', '系统错误');
@@ -98,6 +117,8 @@ export default {
             if (res && res.data && res.data.code === 200) {
                 // const data = res.data.data;
                 // TODO 若提交成功，状态变为审核
+                // 跳转到申请贷款列表页面
+                this.$router.push('/loan-list');
             }
         },
         handleLoanFailed() {
@@ -105,28 +126,31 @@ export default {
         },
         handleDec() {
             console.log(0);
-            if (this.rangeValue > 10) {
-                this.rangeValue = this.rangeValue - 1;
+            if (this.formData.value > 1000) {
+                // this.rangeValue = this.rangeValue - 1;
+                this.formData.value = this.formData.value - 100;
             }
         },
         handleAdd() {
             console.log(1);
-            if (this.rangeValue < 100) {
-                this.rangeValue = this.rangeValue + 1;
+            if (this.formData.value < 30000) {
+                // this.rangeValue = this.rangeValue + 1;
+                this.formData.value = this.formData.value + 100;
             }
         },
-        handleSelectTime(value) {
-            this.selectValue = value;
+        handleSelectTime(id, name, rate) {
+            this.selectId = id;
+            this.selectName = name;
+            this.currentRate = rate;
         },
         handleAgreement() {
             this.isAgreement = !this.isAgreement;
         },
         handleAgreementFile() {
-            // ewq
-            MessageBox({
-                title: '提示',
-                message: '这里是平台服务协议'
-            });
+            this.alertLoanAgreement = true;
+        },
+        handleAgreementFileBack() {
+            this.alertLoanAgreement = false;
         }
     }
 };
