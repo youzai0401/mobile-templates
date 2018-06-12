@@ -67,9 +67,9 @@ export default {
             const data = res.data.data;
             this.linkArr[0].showType = data.info === 1 ? 1 : 0;
             this.linkArr[1].showType = data.data === 1 ? 1 : 0;
-            this.linkArr[2].showType = data.debt === 1 ? 1 : 0;
+            this.linkArr[2].showType = data.account === 1 ? 1 : 0;
             this.linkArr[3].showType = data.link === 1 ? 1 : 0;
-            this.linkArr[4].showType = data.account === 1 ? 1 : 0;
+            this.linkArr[4].showType = data.debt === 1 ? 1 : 0;
             if (data.info === 1 && data.data === 1 && data.link === 1 && data.account === 1) {
                 this.dataIsComplete = true;
             } else {
