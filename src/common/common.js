@@ -125,10 +125,10 @@ const store = {
         storage.local.setItem('user', data);
     },
     getOpenid() {
-        return storage.local.getItem('openid');
+        return storage.session.getItem('openid');
     },
     setOpenid(openid) {
-        storage.local.setItem('openid', openid);
+        storage.session.setItem('openid', openid);
     },
     clear() {
         storage.session.clear();
