@@ -18,10 +18,10 @@ router.beforeEach(async(to, from, next) => {
     console.log('to::', to);
     // 确认当前是否登录，是否存在openid
     const openid = common.store.getOpenid();
-    if (to.path === '/') {
-        return next();
-    }
-    if (!openid) {
+    // if (to.path === '/') {
+    //     return next();
+    // }
+    if (!openid && to.path !== '/') {
         next('/');
         // window.location.reload();
         return;

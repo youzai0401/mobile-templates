@@ -48,20 +48,9 @@ export default {
         }
     },
     async mounted() {
+        // 获取code参数
         // 获取openid
-        let openid = common.store.getOpenid();
-        if (!openid) {
-            // 获取code
-            const code = 'admin1234';
-            const res1 = await server.getOpenid(code).catch(() => {
-                MessageBox('提示', '系统错误');
-            });
-            if (res1 && res1.data && res1.data.code === 200) {
-                // 保存openid
-                openid = res1.data.data.openid;
-                common.store.setOpenid(openid);
-            }
-        }
+        const openid = common.store.getOpenid();
         // 获取基础数据
         const res2 = await server.getPeriod().catch(() => {
             MessageBox('提示', '系统错误');
