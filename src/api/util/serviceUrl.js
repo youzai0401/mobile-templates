@@ -30,5 +30,8 @@ export default {
     },
     getOpenid(code) {
         return `/api/user?code=${code}`;
+    },
+    getJssdk(url) {
+        return `/api/sign?url=${url}`;
     }
 };

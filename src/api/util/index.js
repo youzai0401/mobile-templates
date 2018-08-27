@@ -56,5 +56,9 @@ export default {
     // 获取openid
     getOpenid(code) {
         return fetch().post(serviceUrl.getOpenid(code));
+    },
+    // 获取jssdk授权
+    getJssdk(url) {
+        return fetch().get(serviceUrl.getJssdk(url));
     }
 };
