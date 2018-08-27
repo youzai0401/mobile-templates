@@ -148,13 +148,16 @@ export default {
             console.log('serverId', serverId);
             console.log('type', type);
             // todo 获取图片的url
-            const param = new FormData();
-            // 创建form对象
-            param.append('mediaId', serverId);
-            const config = {
-                headers: {'Content-Type': 'multipart/form-data'}
-            };
-            axios.post('api/img', param, config)
+            // const param = new FormData();
+            // // 创建form对象
+            // param.append('mediaId', serverId);
+            // const config = {
+            //     headers: {'Content-Type': 'multipart/form-data'}
+            // };
+            // const params = {
+            //     mediaId: serverId
+            // };
+            axios.post(`api/img?mediaId=${serverId}`)
                 .then(response => {
                     if (response.data.code === 200) {
                         Indicator.close();
