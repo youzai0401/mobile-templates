@@ -62,6 +62,7 @@ export default {
                 });
             } catch (e) {
                 console.log(e);
+                MessageBox('提示', '系统错误');
             }
         }
         // 获取openid
@@ -78,7 +79,7 @@ export default {
 
     },
     methods: {
-        upload(e, type) {
+        upload(type) {
             console.log('type', type);
             this.chooseImage(type);
             // const file = e.target.files[0];
@@ -170,8 +171,8 @@ export default {
                         }
                     }
                 }).catch(err => {
-                console.log(err);
-            });
+                    console.log(err);
+                });
         },
         main_log(value) {
             console.log(value);
@@ -184,22 +185,19 @@ export default {
             }
         },
         handleUploadImg(type) {
-            let id = '';
-            switch (type) {
-                case 'front':
-                    id = 'uploadFrontImg';
-                    break;
-                case 'back':
-                    id = 'uploadBackImg';
-                    break;
-                case 'body':
-                    id = 'uploadBodyImg';
-                    break;
-            }
-            const fileElem = document.getElementById(id);
-            if (fileElem) {
-                fileElem.click();
-            }
+            // let id = '';
+            // switch (type) {
+            //     case 'front':
+            //         id = 'uploadFrontImg';
+            //         break;
+            //     case 'back':
+            //         id = 'uploadBackImg';
+            //         break;
+            //     case 'body':
+            //         id = 'uploadBodyImg';
+            //         break;
+            // }
+            this.upload(type);
         },
         handleBack() {
             this.$router.push('/personal-data');
