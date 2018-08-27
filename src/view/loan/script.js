@@ -16,7 +16,7 @@ export default {
             selectName: '',
             currentRate: 1,
             rangeValue: 3,
-            isAgreement: false,
+            isAgreement: true,
             dataIsComplete: false,
             alertLoanAgreement: false,
             timeArr: [],

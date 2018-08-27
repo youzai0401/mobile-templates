@@ -6,7 +6,7 @@ export default [
         name: 'loan',
         component: loan,
         meta: {
-            pageTitle: '我的借贷'
+            pageTitle: '申请贷款'
         }
     }];
 

@@ -28,15 +28,15 @@
             <span class="loan-use-label"><span class="cell-required">*</span>借款用途</span>
             <textarea class="loan-use-reason" v-model="formData.purpose" rows="5" cols="15" placeholder="请输入借款用途"></textarea>
         </div>
-        <p class="loan-agreement">
-            <svg v-show="!isAgreement" class="icon loan-icon-agreement" aria-hidden="true" @click="handleAgreement">
-                <use xlink:href="#icon-check-box-outline-blank"></use>
-            </svg>
-            <svg v-show="isAgreement" class="icon loan-icon-agreement" aria-hidden="true" @click="handleAgreement">
-                <use xlink:href="#icon-check-box"></use>
-            </svg>
-            <span>同意 <span style="color:#cf9b41" @click="handleAgreementFile">《平台服务协议》</span></span>
-        </p>
+        <!--<p class="loan-agreement">-->
+            <!--<svg v-show="!isAgreement" class="icon loan-icon-agreement" aria-hidden="true" @click="handleAgreement">-->
+                <!--<use xlink:href="#icon-check-box-outline-blank"></use>-->
+            <!--</svg>-->
+            <!--<svg v-show="isAgreement" class="icon loan-icon-agreement" aria-hidden="true" @click="handleAgreement">-->
+                <!--<use xlink:href="#icon-check-box"></use>-->
+            <!--</svg>-->
+            <!--<span>同意 <span style="color:#cf9b41" @click="handleAgreementFile">《平台服务协议》</span></span>-->
+        <!--</p>-->
         <p class="loan-warning">
             <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-72jingshi"></use>
@@ -45,13 +45,13 @@
         </p>
         <mt-button class="loan-button" type="primary" v-show="dataIsComplete" @click.native="handleLoanSuccess">立即借贷</mt-button>
         <mt-button class="loan-button" type="primary" v-show="!dataIsComplete" @click.native="handleLoanFailed">完善信息</mt-button>
-        <div class="loan-agreement-container" v-show="alertLoanAgreement">
-            <p class="loan-agreement-title">平台服务协议</p>
-            <div class="loan-agreement-content">
-                <p >平台服务协议</p>
-            </div>
-            <mt-button class="loan-agreement-button" type="primary" @click.native="handleAgreementFileBack">返回</mt-button>
-        </div>
+        <!--<div class="loan-agreement-container" v-show="alertLoanAgreement">-->
+            <!--<p class="loan-agreement-title">平台服务协议</p>-->
+            <!--<div class="loan-agreement-content">-->
+                <!--<p >平台服务协议</p>-->
+            <!--</div>-->
+            <!--<mt-button class="loan-agreement-button" type="primary" @click.native="handleAgreementFileBack">返回</mt-button>-->
+        <!--</div>-->
     </div>
 </template>
 <style scoped lang="less" src="./style.less"></style>
