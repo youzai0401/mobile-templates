@@ -157,7 +157,7 @@ export default {
             // const params = {
             //     mediaId: serverId
             // };
-            axios.post(`api/img?mediaId=${serverId}`)
+            axios.post(`api/img?img=${serverId}`)
                 .then(response => {
                     if (response.data.code === 200) {
                         Indicator.close();
