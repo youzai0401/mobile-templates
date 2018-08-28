@@ -26,7 +26,7 @@ export default {
                 }
             } else {
                 const appid = 'wx45326f31cb86bf50';
-                const redirect_uri = encodeURIComponent('http://wechat.mangodog.cn');
+                const redirect_uri = encodeURIComponent('http://wechat.xiaodai86.com');
                 const scope = 'snsapi_base';
                 // const href = `https://open.weixin.qq.com/connect/qrconnect?appid=wx45326f31cb86bf50&redirect_uri=${redirect_uri}&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect`;
                 const href = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${redirect_uri}&response_type=code&scope=${scope}&state=success#wechat_redirect`;
