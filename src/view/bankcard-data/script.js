@@ -7,6 +7,7 @@ export default {
     data() {
         return {
             path: this.$route,
+            isComplete: false,
             formData: {
                 openid: common.store.getOpenid(),
                 name: '',
@@ -50,6 +51,11 @@ export default {
         if (res && res.data && res.data.code === 200) {
             if (res.data.data) {
                 this.formData = res.data.data;
+                // 判断全部数据是否填写完整
+                const dataIsComplete = common.store.getDataIsComplete();
+                if (dataIsComplete) {
+                    this.isComplete = true;
+                }
             }
         }
     },

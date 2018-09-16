@@ -6,7 +6,7 @@ export default [
         name: 'information-data',
         component: data,
         meta: {
-            pageTitle: '资料信息'
+            pageTitle: '借款人信息'
         }
     }];
 

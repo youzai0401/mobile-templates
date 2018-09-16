@@ -45,6 +45,7 @@ routes.js
                 <!--<div class="loan-cell-value"><span></span></div> &lt;!&ndash;&ndash;&gt;</div>-->
             <!--<div class="loan-cell-right"></div>-->
         <!--</div>-->
+        <p style="color: red; text-align: center">请确保个人信息与所在门店信息一致</p>
         <div class="loan-button-container">
             <mt-button v-show="dataIsComplete" type="primary" @click="handleLoan" class="loan-button">立即借款</mt-button>
             <mt-button v-show="!dataIsComplete" type="primary" class="loan-button">完善资料</mt-button>

@@ -9,6 +9,7 @@ export default {
         return {};
     },
     async mounted() {
+        common.store.setOpenid('qweqwe');
         let openid = common.store.getOpenid();
         if (!openid) {
             const code = this.GetQueryString('code');

@@ -8,11 +8,11 @@
                         删除</p>
                 </div>
                 <div class="data-cell">
-                    <span class="data-cell-label">信用卡（银行卡）</span>
+                    <span class="data-cell-label">信用卡张数</span>
                     <input class="data-cell-input" type="text" v-model="item.name">
                 </div>
                 <div class="data-cell">
-                    <span class="data-cell-label">授信额度</span>
+                    <span class="data-cell-label">信用卡总额度</span>
                     <input class="data-cell-input" type="text" v-model="item.value">
                 </div>
                 <div class="data-cell">
@@ -42,11 +42,11 @@
                         删除</p>
                 </div>
                 <div class="data-cell">
-                    <span class="data-cell-label">其他贷款名称</span>
+                    <span class="data-cell-label">私贷零用贷家数</span>
                     <input class="data-cell-input" type="text" v-model="item.name">
                 </div>
                 <div class="data-cell">
-                    <span class="data-cell-label">其他贷款金额</span>
+                    <span class="data-cell-label">每家公司名称</span>
                     <input class="data-cell-input" type="text" v-model="item.value">
                 </div>
             </div>

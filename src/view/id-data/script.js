@@ -10,6 +10,7 @@ export default {
         return {
             path: this.$route,
             params: this.$route.params,
+            isComplete: false,
             images: {
                 localId: [],
                 serverId: []
@@ -73,6 +74,11 @@ export default {
             // todo 将获取到的数据回显到页面
             if (res.data.data) {
                 this.formData = res.data.data;
+                // 判断全部数据是否填写完整
+                const dataIsComplete = common.store.getDataIsComplete();
+                if (dataIsComplete) {
+                    this.isComplete = true;
+                }
             }
         }
 
@@ -202,6 +208,7 @@ export default {
             //         id = 'uploadBodyImg';
             //         break;
             // }
+            if (this.isComplete) return;
             this.upload(type);
         },
         handleBack() {

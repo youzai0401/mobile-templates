@@ -4,13 +4,13 @@
             <span class="data-cell-label">姓名
             <span class="cell-required">*</span>
             </span>
-            <input class="data-cell-input" type="text" placeholder="请输入姓名" v-model="formData.name">
+            <input class="data-cell-input" type="text" :disabled="isComplete" placeholder="请输入姓名" v-model="formData.name">
         </div>
         <div class="data-cell">
             <span class="data-cell-label">身份证号
             <span class="cell-required">*</span>
             </span>
-            <input class="data-cell-input" type="text" placeholder="请输入身份证号" v-model="formData.identityId">
+            <input class="data-cell-input" type="text" :disabled="isComplete" placeholder="请输入身份证号" v-model="formData.identityId">
         </div>
         <div class="id-data-photo-tips">
             <p><span class="cell-required">*</span>须本人身份证，且内容清晰可辨</p>
@@ -49,7 +49,7 @@
         </div>
         <div class="button-container-back-next">
             <mt-button type="danger" class="button-back" @click="handleBack">上一步</mt-button>
-            <mt-button type="primary" class="button-next" @click="handleNext">下一步</mt-button>
+            <mt-button type="primary" class="button-next" @click="handleNext">保存</mt-button>
         </div>
 
     </div>

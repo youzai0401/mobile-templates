@@ -7,9 +7,11 @@ export default {
     data() {
         return {
             path: this.$route,
+            isComplete: false,
             formData: {
                 openid: common.store.getOpenid(),
                 phoneNum: '',
+                phoneServicePassword: '',
                 permanentAddr: '',
                 houseType: '',
                 houseAddr: '',
@@ -29,7 +31,11 @@ export default {
             // TODO 住宅状况？
             rules: {
                 phoneNum: [
-                    {require: true, message: '请输入借款手机号'},
+                    {require: true, message: '请输入借款人手机号'},
+                    {maxLength: 500, message: '输入长度不能超出500'}
+                ],
+                phoneServicePassword: [
+                    {require: true, message: '请输入手机号服务密码'},
                     {maxLength: 500, message: '输入长度不能超出500'}
                 ],
                 permanentAddr: [
@@ -68,6 +74,11 @@ export default {
         if (res && res.data && res.data.code === 200) {
             if (res.data.data) {
                 this.formData = res.data.data;
+                // 判断全部数据是否填写完整
+                const dataIsComplete = common.store.getDataIsComplete();
+                if (dataIsComplete) {
+                    this.isComplete = true;
+                }
             }
         }
     },

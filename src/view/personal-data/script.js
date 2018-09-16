@@ -72,8 +72,10 @@ export default {
             this.linkArr[4].showType = data.debt === 1 ? 1 : 0;
             if (data.info === 1 && data.data === 1 && data.link === 1 && data.account === 1) {
                 this.dataIsComplete = true;
+                common.store.setDataIsComplete(true);
             } else {
                 this.dataIsComplete = false;
+                common.store.setDataIsComplete('');
             }
         }
     },

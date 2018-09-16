@@ -1,6 +1,8 @@
 
 import storage from './storage';
 import cookie from 'js-cookie';
+import server from '../api/util/index';
+import {MessageBox} from 'mint-ui';
 
 
 const getUrlParam = function() {
@@ -130,6 +132,12 @@ const store = {
     setOpenid(openid) {
         storage.session.setItem('openid', openid);
     },
+    getDataIsComplete() {
+        return storage.session.getItem('dataIsComplete');
+    },
+    setDataIsComplete(dataIsComplete) {
+        storage.session.setItem('dataIsComplete', dataIsComplete);
+    },
     clear() {
         storage.session.clear();
         storage.local.clear();
@@ -145,6 +153,22 @@ const getObjectKeys = function(objectData, ignoreKey = []) {
     }
     return keys;
 };
+const getDataIsComplete = async function() {
+    const openid = common.store.getOpenid();
+    const res = await server.getPlan(openid).catch(() => {
+        MessageBox('提示', '系统错误');
+    });
+    if (res && res.data && res.data.code === 200) {
+        const data = res.data.data;
+        if (data.info === 1 && data.data === 1 && data.link === 1 && data.account === 1) {
+            common.store.setDataIsComplete(true);
+            return true;
+        } else {
+            common.store.setDataIsComplete('');
+            return false;
+        }
+    }
+};
 
 export default {
     getUrlParam,
@@ -155,5 +179,6 @@ export default {
     toPercentage,
     getRememberMe,
     returnPageTop,
-    getObjectKeys
+    getObjectKeys,
+    getDataIsComplete
 };
