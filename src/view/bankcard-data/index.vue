@@ -4,7 +4,7 @@
             <span class="data-cell-label">
                 <span class="cell-required">*</span>持卡人姓名
             </span>
-            <input class="data-cell-input" type="text" :class="{'disable-input': !isComplete}" :disabled="isComplete" placeholder="请输入持卡人姓名" v-model="formData.name">
+            <input class="data-cell-input" type="text" :class="{'disable-input': isComplete}" :disabled="isComplete" placeholder="请输入持卡人姓名" v-model="formData.name">
         </div>
         <div class="data-cell">
             <span class="data-cell-label">
