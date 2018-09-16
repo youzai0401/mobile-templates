@@ -44,6 +44,7 @@ export default {
         };
     },
     async mounted() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
         // todo 获取jssdk授权
         const url = window.location.href.split('#')[0];
         const res1 = await server.getJssdk(url);

@@ -27,6 +27,7 @@ export default {
         };
     },
     async mounted() {
+        document.body.scrollTop = document.documentElement.scrollTop = 0;
         // 获取openid
         const openid = common.store.getOpenid();
         const res = await server.getDebtData(openid).catch(() => {
