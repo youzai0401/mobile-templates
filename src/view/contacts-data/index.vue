@@ -10,19 +10,19 @@
             <span class="data-cell-label">
             <span class="cell-required">*</span>父亲姓名
             </span>
-        <input class="data-cell-input" type="text" :disabled="isComplete" placeholder="请输入姓名" v-model="formData.name">
+        <input class="data-cell-input" type="text" :class="{'disable-input': isComplete}" :disabled="isComplete" placeholder="请输入姓名" v-model="formData.name">
       </div>
       <div class="data-cell">
             <span class="data-cell-label">
             <span class="cell-required">*</span>联系电话
             </span>
-        <input class="data-cell-input" type="text" :disabled="isComplete" placeholder="请输入联系方式" v-model="formData.phoneNum">
+        <input class="data-cell-input" type="text" :class="{'disable-input': isComplete}" :disabled="isComplete" placeholder="请输入联系方式" v-model="formData.phoneNum">
       </div>
       <div class="data-cell">
             <span class="data-cell-label">
             <span class="cell-required">*</span>工作单位
             </span>
-        <input class="data-cell-input" type="text" :disabled="isComplete" placeholder="请输入单位" v-model="formData.company">
+        <input class="data-cell-input" type="text" :class="{'disable-input': isComplete}" :disabled="isComplete" placeholder="请输入单位" v-model="formData.company">
       </div>
     </div>
     <div class="contacts-container">
@@ -36,19 +36,19 @@
             <span class="data-cell-label">
             <span class="cell-required">*</span>母亲姓名
             </span>
-        <input class="data-cell-input" type="text" :disabled="isComplete" placeholder="请输入姓名" v-model="formDataSecond.name">
+        <input class="data-cell-input" type="text" :class="{'disable-input': isComplete}" :disabled="isComplete" placeholder="请输入姓名" v-model="formDataSecond.name">
       </div>
       <div class="data-cell">
             <span class="data-cell-label">
             <span class="cell-required">*</span>联系电话
             </span>
-        <input class="data-cell-input" type="text" :disabled="isComplete" placeholder="请输入联系方式" v-model="formDataSecond.phoneNum">
+        <input class="data-cell-input" type="text" :class="{'disable-input': isComplete}" :disabled="isComplete" placeholder="请输入联系方式" v-model="formDataSecond.phoneNum">
       </div>
       <div class="data-cell">
             <span class="data-cell-label">
             <span class="cell-required">*</span>工作单位
             </span>
-        <input class="data-cell-input" type="text" :disabled="isComplete" placeholder="请输入单位" v-model="formDataSecond.company">
+        <input class="data-cell-input" type="text" :class="{'disable-input': isComplete}" :disabled="isComplete" placeholder="请输入单位" v-model="formDataSecond.company">
       </div>
     </div>
     <div class="contacts-container">

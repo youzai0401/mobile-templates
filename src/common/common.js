@@ -133,7 +133,11 @@ const store = {
         storage.session.setItem('openid', openid);
     },
     getDataIsComplete() {
-        return storage.session.getItem('dataIsComplete');
+        if (storage.session.getItem('dataIsComplete')) {
+            return storage.session.getItem('dataIsComplete');
+        } else {
+            // d
+        }
     },
     setDataIsComplete(dataIsComplete) {
         storage.session.setItem('dataIsComplete', dataIsComplete);
@@ -154,17 +158,17 @@ const getObjectKeys = function(objectData, ignoreKey = []) {
     return keys;
 };
 const getDataIsComplete = async function() {
-    const openid = common.store.getOpenid();
+    const openid = store.getOpenid();
     const res = await server.getPlan(openid).catch(() => {
         MessageBox('提示', '系统错误');
     });
     if (res && res.data && res.data.code === 200) {
         const data = res.data.data;
-        if (data.info === 1 && data.data === 1 && data.link === 1 && data.account === 1) {
-            common.store.setDataIsComplete(true);
+        if (data.isUpdate === 1) {
+            store.setDataIsComplete(true);
             return true;
         } else {
-            common.store.setDataIsComplete('');
+            store.setDataIsComplete('');
             return false;
         }
     }

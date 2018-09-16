@@ -89,6 +89,8 @@ export default {
             const dataIsComplete = common.store.getDataIsComplete();
             if (dataIsComplete) {
                 this.isComplete = true;
+            } else {
+                this.isComplete = common.getDataIsComplete();
             }
         }
     },

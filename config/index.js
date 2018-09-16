@@ -42,7 +42,7 @@ module.exports = {
         assetsPublicPath: '/',
         proxyTable: {
             '/api': {
-                target: 'http://wechat.xiaodai86.com/',
+                target: 'http://119.23.213.210:8701',
                 changeOrigin: true
             }
         },
