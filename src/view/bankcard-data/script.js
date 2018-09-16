@@ -43,7 +43,7 @@ export default {
         };
     },
     async mounted() {
-        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        common.returnPageTop();
         // 获取openid
         const openid = common.store.getOpenid();
         const res = await server.getBankcardData(openid).catch(() => {
@@ -54,8 +54,10 @@ export default {
                 this.formData = res.data.data;
                 // 判断全部数据是否填写完整
                 const dataIsComplete = common.store.getDataIsComplete();
-                if (dataIsComplete) {
+                if (dataIsComplete === 'true') {
                     this.isComplete = true;
+                } else if (dataIsComplete === 'false') {
+                    this.isComplete = false;
                 } else {
                     this.isComplete = common.getDataIsComplete();
                 }

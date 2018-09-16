@@ -112,7 +112,7 @@ const toPercentage = function(num1, num2) {
 };
 
 const returnPageTop = function() {
-    const topElement = document.getElementById('lw-content');
+    const topElement = document.getElementById('wx-content');
     if (topElement) {
         topElement.scrollTop = 0;
     }
@@ -165,10 +165,10 @@ const getDataIsComplete = async function() {
     if (res && res.data && res.data.code === 200) {
         const data = res.data.data;
         if (data.isUpdate === 1) {
-            store.setDataIsComplete(true);
+            store.setDataIsComplete('true');
             return true;
         } else {
-            store.setDataIsComplete('');
+            store.setDataIsComplete('false');
             return false;
         }
     }

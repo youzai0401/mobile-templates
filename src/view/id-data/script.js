@@ -44,7 +44,7 @@ export default {
         };
     },
     async mounted() {
-        document.body.scrollTop = document.documentElement.scrollTop = 0;
+        common.returnPageTop();
         // todo 获取jssdk授权
         const url = window.location.href.split('#')[0];
         const res1 = await server.getJssdk(url);
@@ -77,8 +77,10 @@ export default {
                 this.formData = res.data.data;
                 // 判断全部数据是否填写完整
                 const dataIsComplete = common.store.getDataIsComplete();
-                if (dataIsComplete) {
+                if (dataIsComplete === 'true') {
                     this.isComplete = true;
+                } else if (dataIsComplete === 'false') {
+                    this.isComplete = false;
                 } else {
                     this.isComplete = common.getDataIsComplete();
                 }
