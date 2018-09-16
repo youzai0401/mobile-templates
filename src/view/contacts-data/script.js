@@ -13,28 +13,28 @@ export default {
             formData: {
                 openid: common.store.getOpenid(),
                 name: '',
-                relation: '',
+                relation: '父子',
                 phoneNum: '',
                 company: ''
             },
             formDataSecond: {
                 openid: common.store.getOpenid(),
                 name: '',
-                relation: '',
+                relation: '母子',
                 phoneNum: '',
                 company: ''
             },
             formDataThird: {
                 openid: common.store.getOpenid(),
                 name: '',
-                relation: '',
+                relation: '夫妻',
                 phoneNum: '',
                 company: ''
             },
             formDataFour: {
                 openid: common.store.getOpenid(),
                 name: '',
-                relation: '',
+                relation: '朋友',
                 phoneNum: '',
                 company: ''
             },
